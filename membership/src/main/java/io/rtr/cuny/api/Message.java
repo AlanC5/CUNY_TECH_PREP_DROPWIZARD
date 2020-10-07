@@ -3,21 +3,25 @@ package io.rtr.cuny.api;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Message {
-    private String data;
 
+    private long id;
+    private String message;
     public Message() {
     }
 
-    public Message(String data) {
-        this.data = data;
+    public Message(long id, String message) {
+        this.id = id;
+        this.message = message;
     }
 
     @JsonProperty
-    public String getData() {
-        return data;
+    public long getId() {
+        return id;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    @JsonProperty
+    public String getMessage() {
+        return message;
     }
+
 }
