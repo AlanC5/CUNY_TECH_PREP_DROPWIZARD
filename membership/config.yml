@@ -4,3 +4,18 @@ logging:
     io.rtr.cuny: DEBUG
 
 message: Hello World
+
+database:
+  driverClass: org.h2.Driver
+  user: test
+  password: test
+  url: jdbc:h2:./target/example
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
