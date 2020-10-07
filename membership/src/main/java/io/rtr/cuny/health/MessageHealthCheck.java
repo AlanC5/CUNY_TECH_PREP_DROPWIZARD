@@ -6,6 +6,6 @@ public class MessageHealthCheck extends HealthCheck {
 
     @Override
     protected Result check() throws Exception {
-        return null;
+        return Result.healthy("Nothing to check, so we are healthy!");
     }
 }
