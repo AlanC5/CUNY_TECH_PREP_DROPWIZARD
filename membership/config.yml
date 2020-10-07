@@ -1,0 +1,6 @@
+logging:
+  level: INFO
+  loggers:
+    io.rtr.cuny: DEBUG
+
+message: Hello World
