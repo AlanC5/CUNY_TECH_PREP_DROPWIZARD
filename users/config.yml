@@ -2,3 +2,17 @@ logging:
   level: INFO
   loggers:
     io.rtr.cuny: DEBUG
+
+database:
+  driverClass: org.h2.Driver
+  user: test
+  password: test
+  url: jdbc:h2:./target/example
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8880
+  adminConnectors:
+    - type: http
+      port: 8881
