@@ -17,4 +17,9 @@
             <column name="type" type="int"/>
         </createTable>
     </changeSet>
+    <changeSet id="2" author="morgan">
+        <addColumn tableName="members">
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

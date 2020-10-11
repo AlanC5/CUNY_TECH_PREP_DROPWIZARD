@@ -24,6 +24,9 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "user_id")
+    private @NotNull Long userId;
+
     @Column(name = "active")
     private boolean active;
 
@@ -39,6 +42,14 @@ public class Member {
     }
 
     public Member() {
+    }
+
+    public @NotNull Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(@NotNull Long userId) {
+        this.userId = userId;
     }
 
     @Override
