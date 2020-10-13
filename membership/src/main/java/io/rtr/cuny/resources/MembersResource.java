@@ -30,4 +30,24 @@ public class MembersResource {
     public List<Member> listMembers() {
         return memberDAO.findAll();
     }
+
+    @GET
+    @UnitOfWork
+    @Path("{id}")
+    public Member findMemberById(@PathParam("id") long id) {
+        return memberDAO.findById(id);
+    }
+
+    @GET
+    @UnitOfWork
+    @Path("/userId/{userId}")
+    public List<Member> findMembersByUserId(@PathParam("userId") long userId) {
+        return memberDAO.findByUserId(userId);
+    }
+
+    @PATCH
+    @UnitOfWork
+    public Member updateMember(@Valid Member member) {
+        return memberDAO.update(member);
+    }
 }
