@@ -30,4 +30,17 @@ public class UsersResource {
     public List<User> listUsers() {
         return userDAO.findAll();
     }
+
+    @GET
+    @UnitOfWork
+    @Path("/userId/{userId}")
+    public User findUserByUserId(@PathParam("userId") long userId) {
+        return userDAO.findByUserId(userId);
+    }
+
+    @PATCH
+    @UnitOfWork
+    public User updateUser(@Valid User user) {
+        return userDAO.update(user);
+    }
 }

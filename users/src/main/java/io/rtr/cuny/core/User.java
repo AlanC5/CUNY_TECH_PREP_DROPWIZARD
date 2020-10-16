@@ -11,6 +11,10 @@ import java.util.Objects;
                 @NamedQuery(
                         name = "io.rtr.cuny.core.User.findAll",
                         query = "SELECT u FROM User u"
+                ),
+                @NamedQuery(
+                        name = "io.rtr.cuny.core.User.findByUserId",
+                        query = "SELECT u from User u where u.userId= :userId"
                 )
         })
 public class User {
@@ -21,12 +25,16 @@ public class User {
     @Column(name = "user_id")
     private @NotNull Long userId;
 
+    @Column(name = "full_name")
+    private String fullName;
+
     public User() {
     }
 
-    public User(long id, @NotNull Long userId) {
+    public User(long id, @NotNull Long userId, @NotNull String fullName) {
         this.id = id;
         this.userId = userId;
+        this.fullName = fullName;
     }
 
     @Override
@@ -35,7 +43,8 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id &&
-                userId.equals(user.userId);
+                userId.equals(user.userId) &&
+                fullName.equals(user.fullName);
     }
 
     @Override
@@ -57,5 +66,13 @@ public class User {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

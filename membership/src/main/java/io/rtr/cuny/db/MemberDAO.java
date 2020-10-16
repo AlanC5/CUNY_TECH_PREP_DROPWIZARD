@@ -2,12 +2,9 @@ package io.rtr.cuny.db;
 
 import io.dropwizard.hibernate.AbstractDAO;
 import io.rtr.cuny.core.Member;
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
-import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 public class MemberDAO extends AbstractDAO<Member> {
