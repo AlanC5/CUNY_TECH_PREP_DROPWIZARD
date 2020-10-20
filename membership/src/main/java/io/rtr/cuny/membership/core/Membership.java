@@ -1,4 +1,4 @@
-package io.rtr.cuny.core;
+package io.rtr.cuny.membership.core;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,19 +11,19 @@ enum MembershipType {
 }
 
 @Entity
-@Table(name = "members")
+@Table(name = "membership")
 @NamedQueries(
         {
                 @NamedQuery(
-                        name = "io.rtr.cuny.core.Member.findAll",
-                        query = "SELECT m FROM Member m"
+                        name = "io.rtr.cuny.membership.core.Membership.findAll",
+                        query = "SELECT m FROM Membership m"
                 ),
                 @NamedQuery(
-                        name = "io.rtr.cuny.core.Member.findByUserId",
-                        query = "SELECT m from Member m where m.userId= :userId"
+                        name = "io.rtr.cuny.membership.core.Membership.findByUserId",
+                        query = "SELECT m from Membership m where m.userId = :userId"
                 )
         })
-public class Member {
+public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -39,13 +39,13 @@ public class Member {
     @Column(name = "type", nullable = false)
     private MembershipType type;
 
-    public Member(long id, boolean active, MembershipType type) {
+    public Membership(long id, boolean active, MembershipType type) {
         this.id = id;
         this.active = active;
         this.type = type;
     }
 
-    public Member() {
+    public Membership() {
     }
 
     public @NotNull Long getUserId() {
@@ -60,10 +60,10 @@ public class Member {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Member member = (Member) o;
-        return id == member.id &&
-                active == member.active &&
-                type == member.type;
+        Membership memberShip = (Membership) o;
+        return id == memberShip.id &&
+                active == memberShip.active &&
+                type == memberShip.type;
     }
 
     @Override

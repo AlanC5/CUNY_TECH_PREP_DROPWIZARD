@@ -18,4 +18,7 @@
             <column name="user_id" type="bigint"/>
         </createTable>
     </changeSet>
+    <changeSet id="2" author="morgan">
+        <renameTable oldTableName="members" newTableName="membership"/>
+    </changeSet>
 </databaseChangeLog>

@@ -1,8 +1,8 @@
-package io.rtr.cuny.health;
+package io.rtr.cuny.membership.health;
 
 import com.codahale.metrics.health.HealthCheck;
 
-public class MessageHealthCheck extends HealthCheck {
+public class MembershipHealthCheck extends HealthCheck {
 
     @Override
     protected Result check() throws Exception {

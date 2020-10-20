@@ -3,8 +3,6 @@ logging:
   loggers:
     io.rtr.cuny: DEBUG
 
-message: Hello World
-
 database:
   driverClass: org.h2.Driver
   user: test

@@ -19,7 +19,7 @@
         <dropwizard.version>2.0.13</dropwizard.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <mainClass>io.rtr.cuny.MembershipApplication</mainClass>
+        <mainClass>io.rtr.cuny.membership.MembershipApplication</mainClass>
     </properties>
 
     <dependencyManagement>
@@ -62,6 +62,10 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-client</artifactId>
         </dependency>
     </dependencies>
 
