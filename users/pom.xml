@@ -19,7 +19,7 @@
         <dropwizard.version>2.0.13</dropwizard.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <mainClass>io.rtr.cuny.UsersApplication</mainClass>
+        <mainClass>io.rtr.cuny.users.UsersApplication</mainClass>
     </properties>
 
     <dependencyManagement>

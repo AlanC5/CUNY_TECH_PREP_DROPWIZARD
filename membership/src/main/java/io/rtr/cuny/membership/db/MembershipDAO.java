@@ -17,7 +17,7 @@ public class MembershipDAO extends AbstractDAO<Membership> {
     }
 
     public List<Membership> findByUserId(Long userId) {
-        Query query = namedQuery("io.rtr.cuny.core.Membership.findByUserId");
+        Query query = namedQuery("io.rtr.cuny.membership.core.Membership.findByUserId");
         query.setParameter("userId", userId);
 
         return list(query);

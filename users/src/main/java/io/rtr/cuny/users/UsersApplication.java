@@ -1,4 +1,4 @@
-package io.rtr.cuny;
+package io.rtr.cuny.users;
 
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
@@ -6,10 +6,10 @@ import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import io.rtr.cuny.core.User;
-import io.rtr.cuny.db.UserDAO;
-import io.rtr.cuny.health.UsersHealthCheck;
-import io.rtr.cuny.resources.UsersResource;
+import io.rtr.cuny.users.core.User;
+import io.rtr.cuny.users.db.UserDAO;
+import io.rtr.cuny.users.health.UsersHealthCheck;
+import io.rtr.cuny.users.resources.UsersResource;
 
 public class UsersApplication extends Application<UsersConfiguration> {
     private final HibernateBundle<UsersConfiguration> hibernateBundle =

@@ -1,4 +1,4 @@
-package io.rtr.cuny;
+package io.rtr.cuny.users;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

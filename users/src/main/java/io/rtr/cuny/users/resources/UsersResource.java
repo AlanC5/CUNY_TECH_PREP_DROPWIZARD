@@ -1,8 +1,8 @@
-package io.rtr.cuny.resources;
+package io.rtr.cuny.users.resources;
 
 import io.dropwizard.hibernate.UnitOfWork;
-import io.rtr.cuny.core.User;
-import io.rtr.cuny.db.UserDAO;
+import io.rtr.cuny.users.core.User;
+import io.rtr.cuny.users.db.UserDAO;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;

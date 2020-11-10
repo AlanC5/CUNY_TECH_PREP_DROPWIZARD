@@ -1,4 +1,4 @@
-package io.rtr.cuny.core;
+package io.rtr.cuny.users.core;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,11 +9,11 @@ import java.util.Objects;
 @NamedQueries(
         {
                 @NamedQuery(
-                        name = "io.rtr.cuny.core.User.findAll",
+                        name = "io.rtr.cuny.users.core.User.findAll",
                         query = "SELECT u FROM User u"
                 ),
                 @NamedQuery(
-                        name = "io.rtr.cuny.core.User.findByUserId",
+                        name = "io.rtr.cuny.users.core.User.findByUserId",
                         query = "SELECT u from User u where u.userId= :userId"
                 )
         })

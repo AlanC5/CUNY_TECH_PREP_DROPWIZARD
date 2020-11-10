@@ -1,4 +1,4 @@
-package io.rtr.cuny.health;
+package io.rtr.cuny.users.health;
 
 import com.codahale.metrics.health.HealthCheck;
 
