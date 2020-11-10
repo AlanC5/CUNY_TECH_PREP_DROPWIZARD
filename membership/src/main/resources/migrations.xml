@@ -21,4 +21,7 @@
     <changeSet id="2" author="morgan">
         <renameTable oldTableName="members" newTableName="membership"/>
     </changeSet>
+    <changeSet id="3" author="morgan">
+        <renameColumn tableName="membership" oldColumnName="type" newColumnName="membership_type"/>
+    </changeSet>
 </databaseChangeLog>

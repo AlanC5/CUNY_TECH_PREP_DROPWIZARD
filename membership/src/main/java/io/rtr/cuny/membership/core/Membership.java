@@ -36,13 +36,13 @@ public class Membership {
 
     @NotNull
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "type", nullable = false)
-    private MembershipType type;
+    @Column(name = "membership_type", nullable = false)
+    private MembershipType membershipType;
 
-    public Membership(long id, boolean active, MembershipType type) {
+    public Membership(long id, boolean active, MembershipType membershipType) {
         this.id = id;
         this.active = active;
-        this.type = type;
+        this.membershipType = membershipType;
     }
 
     public Membership() {
@@ -63,12 +63,12 @@ public class Membership {
         Membership memberShip = (Membership) o;
         return id == memberShip.id &&
                 active == memberShip.active &&
-                type == memberShip.type;
+                membershipType == memberShip.membershipType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, active, type);
+        return Objects.hash(id, active, membershipType);
     }
 
     public long getId() {
@@ -87,11 +87,11 @@ public class Membership {
         this.active = active;
     }
 
-    public MembershipType getType() {
-        return type;
+    public MembershipType getMembershipType() {
+        return membershipType;
     }
 
-    public void setType(MembershipType type) {
-        this.type = type;
+    public void setMembershipType(MembershipType membershipType) {
+        this.membershipType = membershipType;
     }
 }

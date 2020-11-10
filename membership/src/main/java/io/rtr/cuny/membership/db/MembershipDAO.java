@@ -7,8 +7,8 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class MemberDAO extends AbstractDAO<Membership> {
-    public MemberDAO(SessionFactory sessionFactory) {
+public class MembershipDAO extends AbstractDAO<Membership> {
+    public MembershipDAO(SessionFactory sessionFactory) {
         super(sessionFactory);
     }
 
@@ -17,7 +17,7 @@ public class MemberDAO extends AbstractDAO<Membership> {
     }
 
     public List<Membership> findByUserId(Long userId) {
-        Query query = namedQuery("io.rtr.cuny.core.Member.findByUserId");
+        Query query = namedQuery("io.rtr.cuny.core.Membership.findByUserId");
         query.setParameter("userId", userId);
 
         return list(query);
@@ -29,7 +29,7 @@ public class MemberDAO extends AbstractDAO<Membership> {
 
     @SuppressWarnings("unchecked")
     public List<Membership> findAll() {
-        return list((Query<Membership>) namedQuery("io.rtr.cuny.membership.core.Member.findAll"));
+        return list((Query<Membership>) namedQuery("io.rtr.cuny.membership.core.Membership.findAll"));
     }
 
     public Membership update(Membership memberShip) {
