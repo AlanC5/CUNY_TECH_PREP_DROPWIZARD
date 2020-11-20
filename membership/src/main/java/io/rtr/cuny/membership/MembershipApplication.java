@@ -8,6 +8,7 @@ import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.rtr.cuny.membership.core.Membership;
+import io.rtr.cuny.membership.core.MembershipCore;
 import io.rtr.cuny.membership.db.MembershipDAO;
 import io.rtr.cuny.membership.health.MembershipHealthCheck;
 import io.rtr.cuny.membership.resources.MembershipResource;
@@ -48,12 +49,12 @@ public class MembershipApplication extends Application<MembershipConfiguration> 
                     final Environment environment) {
         final MembershipDAO membershipDAO = new MembershipDAO(hibernateBundle.getSessionFactory());
         final HttpClient httpClient = new HttpClientBuilder(environment).using(configuration.getHttpClientConfiguration())
-            .build(getName());
+                .build(getName());
+        final MembershipCore membershipCore = new MembershipCore(membershipDAO, httpClient);
         final MembershipHealthCheck healthCheck = new MembershipHealthCheck();
 
-
         environment.healthChecks().register("membership", healthCheck);
-        environment.jersey().register(new MembershipResource(membershipDAO, httpClient));
+        environment.jersey().register(new MembershipResource(membershipCore));
     }
 
 }

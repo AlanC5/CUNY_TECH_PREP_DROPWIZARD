@@ -21,6 +21,10 @@ enum MembershipType {
                 @NamedQuery(
                         name = "io.rtr.cuny.membership.core.Membership.findByUserId",
                         query = "SELECT m from Membership m where m.userId = :userId"
+                ),
+                @NamedQuery(
+                        name = "io.rtr.cuny.membership.core.Membership.deleteById",
+                        query = "DELETE from Membership where id = :id"
                 )
         })
 public class Membership {

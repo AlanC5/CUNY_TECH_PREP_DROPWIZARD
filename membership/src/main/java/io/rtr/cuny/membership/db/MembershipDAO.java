@@ -38,7 +38,13 @@ public class MembershipDAO extends AbstractDAO<Membership> {
             return null;
         }
         currentSession().clear();
-
         return persist(memberShip);
+    }
+
+    public int delete(final Long id) {
+        Query query = namedQuery("io.rtr.cuny.membership.core.Membership.deleteById");
+        query.setParameter("id", id);
+
+        return query.executeUpdate();
     }
 }
