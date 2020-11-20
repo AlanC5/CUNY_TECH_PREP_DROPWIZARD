@@ -6,7 +6,8 @@ import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import io.rtr.cuny.users.core.User;
+import io.rtr.cuny.users.core.UserCore;
+import io.rtr.cuny.users.models.User;
 import io.rtr.cuny.users.db.UserDAO;
 import io.rtr.cuny.users.health.UsersHealthCheck;
 import io.rtr.cuny.users.resources.UsersResource;
@@ -44,11 +45,12 @@ public class UsersApplication extends Application<UsersConfiguration> {
     public void run(final UsersConfiguration configuration,
                     final Environment environment) {
         final UserDAO userDAO = new UserDAO(hibernateBundle.getSessionFactory());
+        final UserCore userCore = new UserCore(userDAO);
 
         final UsersHealthCheck healthCheck = new UsersHealthCheck();
 
         environment.healthChecks().register("message", healthCheck);
-        environment.jersey().register(new UsersResource(userDAO));
+        environment.jersey().register(new UsersResource(userDAO, userCore));
     }
 
 }

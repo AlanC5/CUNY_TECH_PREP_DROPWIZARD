@@ -2,7 +2,7 @@ package io.rtr.cuny.membership.resources;
 
 import io.dropwizard.hibernate.UnitOfWork;
 import io.rtr.cuny.membership.core.Membership;
-import io.rtr.cuny.membership.core.MembershipCore;
+import io.rtr.cuny.membership.models.MembershipCore;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -22,6 +22,7 @@ public class MembershipResource {
     @POST
     @UnitOfWork
     public Response createMember(@Valid Membership memberShip) {
+        // TODO: make a validator
         if (membershipCore.memberExists(memberShip.getUserId())) {
             return Response
                     .status(304, String.format("Membership for userId=%d already exists.", memberShip.getUserId()))

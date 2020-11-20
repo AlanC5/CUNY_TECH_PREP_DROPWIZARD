@@ -1,7 +1,8 @@
 package io.rtr.cuny.users.resources;
 
 import io.dropwizard.hibernate.UnitOfWork;
-import io.rtr.cuny.users.core.User;
+import io.rtr.cuny.users.core.UserCore;
+import io.rtr.cuny.users.models.User;
 import io.rtr.cuny.users.db.UserDAO;
 
 import javax.validation.Valid;
@@ -15,40 +16,49 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsersResource {
     private final UserDAO userDAO;
+    private final UserCore userCore;
 
-    public UsersResource(UserDAO userDAO) {
+    public UsersResource(UserDAO userDAO, UserCore userCore) {
         this.userDAO = userDAO;
+        this.userCore = userCore;
     }
 
     @POST
     @UnitOfWork
     public Response createUser(@Valid User user)
     {
-        final User foundUser = userDAO.findByUserId(user.getUserId());
+        final User foundUser = userCore.findByUserId(user.getUserId());
         if (foundUser != null) {
             return Response
                     .status(304, String.format("User for userId=%d already exists.", user.getUserId()))
                     .build();
         }
-        return Response.ok(userDAO.create(user)).build();
+        return Response.ok(userCore.createUser(user)).build();
     }
 
     @GET
     @UnitOfWork
-    public List<User> listUsers() {
-        return userDAO.findAll();
+    public Response listUsers() {
+        return Response.ok(userCore.listUsers()).build();
     }
 
     @GET
     @UnitOfWork
     @Path("/userId/{userId}")
-    public User findUserByUserId(@PathParam("userId") long userId) {
-        return userDAO.findByUserId(userId);
+    public Response findUserByUserId(@PathParam("userId") long userId) {
+        return Response.ok(userCore.findByUserId(userId)).build();
     }
 
     @PATCH
     @UnitOfWork
-    public User updateUser(@Valid User user) {
-        return userDAO.update(user);
+    public Response updateUser(@Valid User user) {
+        return Response.ok(userCore.updateUser(user)).build();
+    }
+
+    @DELETE
+    @UnitOfWork
+    @Path("{id}")
+    public Response deleteUserById(@PathParam("id") long id) {
+        return Response.ok(userCore.deleteById(id)).build();
     }
 }

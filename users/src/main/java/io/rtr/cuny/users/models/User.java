@@ -1,4 +1,4 @@
-package io.rtr.cuny.users.core;
+package io.rtr.cuny.users.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,12 +9,16 @@ import java.util.Objects;
 @NamedQueries(
         {
                 @NamedQuery(
-                        name = "io.rtr.cuny.users.core.User.findAll",
+                        name = "io.rtr.cuny.users.models.User.findAll",
                         query = "SELECT u FROM User u"
                 ),
                 @NamedQuery(
-                        name = "io.rtr.cuny.users.core.User.findByUserId",
+                        name = "io.rtr.cuny.users.models.User.findByUserId",
                         query = "SELECT u from User u where u.userId=:userId"
+                ),
+                @NamedQuery(
+                        name = "io.rtr.cuny.users.models.User.deleteById",
+                        query = "DELETE from User where id=:id"
                 )
         })
 public class User {

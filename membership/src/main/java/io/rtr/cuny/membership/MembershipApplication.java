@@ -8,7 +8,7 @@ import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.rtr.cuny.membership.core.Membership;
-import io.rtr.cuny.membership.core.MembershipCore;
+import io.rtr.cuny.membership.models.MembershipCore;
 import io.rtr.cuny.membership.db.MembershipDAO;
 import io.rtr.cuny.membership.health.MembershipHealthCheck;
 import io.rtr.cuny.membership.resources.MembershipResource;

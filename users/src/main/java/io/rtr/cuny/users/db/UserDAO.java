@@ -1,7 +1,7 @@
 package io.rtr.cuny.users.db;
 
 import io.dropwizard.hibernate.AbstractDAO;
-import io.rtr.cuny.users.core.User;
+import io.rtr.cuny.users.models.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
@@ -18,7 +18,7 @@ public class UserDAO extends AbstractDAO<User> {
     }
 
     public User findByUserId(Long userId) {
-        Query query = namedQuery("io.rtr.cuny.users.core.User.findByUserId");
+        Query query = namedQuery("io.rtr.cuny.users.models.User.findByUserId");
         query.setParameter("userId", userId);
 
         try {
@@ -34,7 +34,7 @@ public class UserDAO extends AbstractDAO<User> {
 
     @SuppressWarnings("unchecked")
     public List<User> findAll() {
-        return list((Query<User>) namedQuery("io.rtr.cuny.users.core.User.findAll"));
+        return list((Query<User>) namedQuery("io.rtr.cuny.users.models.User.findAll"));
     }
 
     public User update(User user) {
@@ -45,5 +45,11 @@ public class UserDAO extends AbstractDAO<User> {
         currentSession().clear();
 
         return persist(user);
+    }
+
+    public int deleteUserById(final Long id) {
+        Query query = namedQuery("io.rtr.cuny.users.models.User.deleteById");
+        query.setParameter("id", id);
+        return query.executeUpdate();
     }
 }
