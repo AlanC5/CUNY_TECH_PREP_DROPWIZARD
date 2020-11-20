@@ -14,7 +14,7 @@ import java.util.Objects;
                 ),
                 @NamedQuery(
                         name = "io.rtr.cuny.users.core.User.findByUserId",
-                        query = "SELECT u from User u where u.userId= :userId"
+                        query = "SELECT u from User u where u.userId=:userId"
                 )
         })
 public class User {

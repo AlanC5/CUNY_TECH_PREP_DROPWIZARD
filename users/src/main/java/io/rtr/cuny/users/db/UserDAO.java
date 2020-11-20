@@ -5,6 +5,7 @@ import io.rtr.cuny.users.core.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public class UserDAO extends AbstractDAO<User> {
@@ -20,7 +21,11 @@ public class UserDAO extends AbstractDAO<User> {
         Query query = namedQuery("io.rtr.cuny.users.core.User.findByUserId");
         query.setParameter("userId", userId);
 
-        return (User) query.getSingleResult();
+        try {
+            return (User) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     public User create(User user) {
