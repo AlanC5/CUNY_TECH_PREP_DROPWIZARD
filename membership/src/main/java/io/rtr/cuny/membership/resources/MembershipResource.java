@@ -1,8 +1,8 @@
 package io.rtr.cuny.membership.resources;
 
 import io.dropwizard.hibernate.UnitOfWork;
-import io.rtr.cuny.membership.core.Membership;
-import io.rtr.cuny.membership.models.MembershipCore;
+import io.rtr.cuny.membership.models.Membership;
+import io.rtr.cuny.membership.core.MembershipCore;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;

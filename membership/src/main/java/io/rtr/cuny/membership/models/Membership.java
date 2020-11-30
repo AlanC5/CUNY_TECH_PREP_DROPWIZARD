@@ -1,4 +1,4 @@
-package io.rtr.cuny.membership.core;
+package io.rtr.cuny.membership.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,15 +15,15 @@ enum MembershipType {
 @NamedQueries(
         {
                 @NamedQuery(
-                        name = "io.rtr.cuny.membership.core.Membership.findAll",
+                        name = "io.rtr.cuny.membership.models.Membership.findAll",
                         query = "SELECT m FROM Membership m"
                 ),
                 @NamedQuery(
-                        name = "io.rtr.cuny.membership.core.Membership.findByUserId",
+                        name = "io.rtr.cuny.membership.models.Membership.findByUserId",
                         query = "SELECT m from Membership m where m.userId = :userId"
                 ),
                 @NamedQuery(
-                        name = "io.rtr.cuny.membership.core.Membership.deleteById",
+                        name = "io.rtr.cuny.membership.models.Membership.deleteById",
                         query = "DELETE from Membership where id = :id"
                 )
         })

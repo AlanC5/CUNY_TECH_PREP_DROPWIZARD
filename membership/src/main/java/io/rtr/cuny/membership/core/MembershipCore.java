@@ -1,6 +1,6 @@
-package io.rtr.cuny.membership.models;
+package io.rtr.cuny.membership.core;
 
-import io.rtr.cuny.membership.core.Membership;
+import io.rtr.cuny.membership.models.Membership;
 import io.rtr.cuny.membership.db.MembershipDAO;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;

@@ -50,7 +50,6 @@ public class UsersApplication extends Application<UsersConfiguration> {
         final UsersHealthCheck healthCheck = new UsersHealthCheck();
 
         environment.healthChecks().register("message", healthCheck);
-        environment.jersey().register(new UsersResource(userDAO, userCore));
+        environment.jersey().register(new UsersResource(userCore));
     }
-
 }

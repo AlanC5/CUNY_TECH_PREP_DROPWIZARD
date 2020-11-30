@@ -1,7 +1,7 @@
 package io.rtr.cuny.membership.db;
 
 import io.dropwizard.hibernate.AbstractDAO;
-import io.rtr.cuny.membership.core.Membership;
+import io.rtr.cuny.membership.models.Membership;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
@@ -17,7 +17,7 @@ public class MembershipDAO extends AbstractDAO<Membership> {
     }
 
     public List<Membership> findByUserId(Long userId) {
-        Query query = namedQuery("io.rtr.cuny.membership.core.Membership.findByUserId");
+        Query query = namedQuery("io.rtr.cuny.membership.models.Membership.findByUserId");
         query.setParameter("userId", userId);
 
         return list(query);
@@ -29,7 +29,7 @@ public class MembershipDAO extends AbstractDAO<Membership> {
 
     @SuppressWarnings("unchecked")
     public List<Membership> findAll() {
-        return list((Query<Membership>) namedQuery("io.rtr.cuny.membership.core.Membership.findAll"));
+        return list((Query<Membership>) namedQuery("io.rtr.cuny.membership.models.Membership.findAll"));
     }
 
     public Membership update(Membership memberShip) {
@@ -42,7 +42,7 @@ public class MembershipDAO extends AbstractDAO<Membership> {
     }
 
     public int delete(final Long id) {
-        Query query = namedQuery("io.rtr.cuny.membership.core.Membership.deleteById");
+        Query query = namedQuery("io.rtr.cuny.membership.models.Membership.deleteById");
         query.setParameter("id", id);
 
         return query.executeUpdate();

@@ -3,23 +3,19 @@ package io.rtr.cuny.users.resources;
 import io.dropwizard.hibernate.UnitOfWork;
 import io.rtr.cuny.users.core.UserCore;
 import io.rtr.cuny.users.models.User;
-import io.rtr.cuny.users.db.UserDAO;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsersResource {
-    private final UserDAO userDAO;
     private final UserCore userCore;
 
-    public UsersResource(UserDAO userDAO, UserCore userCore) {
-        this.userDAO = userDAO;
+    public UsersResource(UserCore userCore) {
         this.userCore = userCore;
     }
 
